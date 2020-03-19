@@ -35,19 +35,6 @@ io.springfox:springfox-swagger-ui:2.6.1
 
 ```
 
-2  启动类加添加swagger注解 **@EnableSwagger2**，开启swagger功能
-```java
-@SpringBootApplication
-@EnableSwagger2
-public class SpringbootSwaggerApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootSwaggerApplication.class, args);
-	}
-
-}
-```
-
 2 创建swagger配置类
 ```java
 @Configuration
@@ -85,7 +72,7 @@ public class Swagger2Config {
 实例用来控制哪些接口暴露给Swagger来展现，本例采用指定扫描的包路径来定义，Swagger 会扫描
 该包下所有 Controller 定义的API，并产生文档内容（除了那些被 @ApiIgnore 指定的请求。
 
-4 API 接口编写
+3 API 接口编写
 在完成了上述配置后，其实已经可以产生文档内容，但是这样的文档主要针对请求本身，而描述
 主要来源于函数等命名产生，对用户并不友好，我们通常需要自己增加一些说明来丰富文档内容。
 ```java
@@ -184,7 +171,7 @@ Swagger 通过注解定制接口对外展示的信息，这些信息包括接口
 @ApiImplicitParam：描述一个请求参数，可以配置参数的中文含义，还可以给参数设置默认值
 @ApiImplicitParams：描述由多个 @ApiImplicitParam 注解的参数组成的请求参数列表
 
-5 启动 SpringBoot 应用
+4 启动 SpringBoot 应用
 SpringBoot 启动成功后，访问 http://localhost:8080/swagger-ui.html
 
 展开类维度的接口列表，如 user-controller，页面会列出该类中定义的所有接口。点击任意接口，
